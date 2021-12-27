@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>匿言</title>
+    	<link rel="icon" sizes="any" mask href="https://img1.baidu.com/it/u=1491760410,1701535330&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500">
+    	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='qqZone.css')}}">
+</head>
+<body>
+    <div class="header">
+        This is the head nav
+    </div>
+    <div class="topInfo">
+<!--        <span class="edit">编辑</span>-->
+    	<div class="zoneName">
+    		<h2>欢迎来到留言空间</h2>
+    		<p>越努力越幸运</p>
+    	</div>
+
+    	<div class="top_bottom">
+
+    	</div>
+    </div>
+    <!-- 下面实现留言板功能 -->
+    <div class="mainframe">
+    	<div class="title">留言板</div>
+
+		<form class="test_form" method="post"  action="http://39.107.79.10:3344/insert">
+
+		<textarea class="text" name="text" type="text"></textarea><br>
+        <input class="button" type="submit">
+    </form>
+
+    	<div class="numofmessage">留言({{i}})</div>
+    	<!-- 下面是留言区 -->
+    	<div class="msgFrame">
+            {%for i in data %}
+    	     <div class="content_1">
+    	         <img class="name" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fup.enterdesk.com%2Fedpic%2Fec%2Fca%2Fd8%2Feccad87a334d082b8ff200ae01157e44.jpg&refer=http%3A%2F%2Fup.enterdesk.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1643109885&t=c2d526e04549d5b3a7d09fcf4da885e4" alt="photo">
+    	         <div class="mainInfo">
+    		         <div class="userId"><a href="#">zipple</a></div>
+    		         <div class="conInfo">
+    				       {{i.message}}
+    		            </div>
+    		         <div class="time">{{i.time}}</div>
+    		    </div>
+
+    	    </div>
+			{% endfor %}
+
+         </div>
+    </div>
+</body>
+<script type="text/javascript" src="{{url_for('static',filename='jquery.js')}}"></script>
+
+</html>
